@@ -1,0 +1,25 @@
+#!groovy
+pipeline {
+    environment {
+        registry = "afik/argocd-project"
+        registryCredential = 'Docker_hub'
+    }
+    agent any
+    parameters {
+         string(name: 'docker_tagging', defaultValue: 'BUILD_TAG', description: 'Which tag you will add to the current image?')
+    }
+    stages {
+         stage('pushing_image') {
+              steps {
+                  script {
+                      if (env.BUILD_TAG) {
+                            echo 'Pushing the image with the tag: ${BUILD_TAG}'
+                          sh './push_docker_image.sh ${BUILD_TAG} ${registry}'
+                      } else {
+                            echo 'No BUILD_TAG specified!'
+                      }
+                   }
+               } 
+         }
+    }
+}
