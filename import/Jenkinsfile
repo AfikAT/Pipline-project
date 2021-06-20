@@ -19,8 +19,8 @@ pipeline {
                 dir('helm') {
                     script {
                             echo 'Installing Helm chart'
-                                sh '/usr/local/bin/helm install spring-petclinic-k8S ./springchart'
-                    }
+                                //sh '/usr/local/bin/helm install spring-petclinic-k8S ./springchart'
+                    }             sh 'which helm'
                 }
          }
                     }
