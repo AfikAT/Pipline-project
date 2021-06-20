@@ -12,6 +12,7 @@ pipeline {
                  dir('import') {
                     script {
                             echo 'Building Dockerfile'
+                            withCredentials([usernamePassword(credentialsId: 'Docker_hub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
                             sh './push_docker_image.sh ${BUILD_NUMBER} ${REGISTRY}'
                     }
                  }
