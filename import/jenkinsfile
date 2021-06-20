@@ -5,21 +5,14 @@ pipeline {
         registryCredential = 'Docker_hub'
     }
     agent any
-    //parameters {
-         //string(name: 'docker_tagging', defaultValue: 'BUILD_TAG', description: 'Which tag you will add to the current image?')
-    //}
     stages {
          stage('pushing_image') {
               steps {
                   script {
-                      if (env.BUILD_TAG) {
-                            echo 'Pushing the image with the tag: ${BUILD_NUMBER}'
+                           echo 'Building Dockerfile'
                           sh './push_docker_image.sh ${BUILD_NUMBER} ${registry}'
-                      } else {
-                            echo 'No BUILD_TAG specified!'
-                      }
-                   }
-               } 
+                  }
+              }
          }
     }
 }
