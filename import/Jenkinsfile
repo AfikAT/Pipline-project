@@ -2,7 +2,7 @@
 pipeline {
     environment {
         REGISTRY = "afik/argocd-project"
-        REGESTRY_CRED = 'Docker_hub'
+        registryCredential = 'Docker_hub'
         BUILD_NUMBER = "${env.BUILD_ID}"
     }
     agent any
@@ -12,10 +12,10 @@ pipeline {
                  dir('import') {
                     script {
                             echo 'Building Dockerfile'
-                            withCredentials([usernamePassword(credentialsId: 'Docker_hub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                                sh 'docker login ${env.USERNAME} -p ${env.PASSWORD}'
+                            //withCredentials([usernamePassword(credentialsId: 'Docker_hub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                              docker.withRegistry( '', registryCredential ) {
                                 sh './push_docker_image.sh ${BUILD_NUMBER} ${REGISTRY}'
-                            }
+                              }
                     }
                  }
              }
