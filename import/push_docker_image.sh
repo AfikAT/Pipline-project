@@ -1,7 +1,7 @@
 #!/bin/sh
 
-$build = ${1}
-$registry_path = ${2}
+build=${1}
+registry_path=${2}
 
 ##Building the image using latest tag & push to dockerhub
 
