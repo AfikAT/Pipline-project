@@ -4,6 +4,8 @@ pipeline {
         REGISTRY = "afik/argocd-project"
         REGESTRY_CRED = 'Docker_hub'
         BUILD_NUMBER = "${env.BUILD_ID}"
+        dockeruser = "${USERNAME}
+        dockerpass = "${PASSWORD}
     }
     agent any
     stages {
@@ -13,7 +15,7 @@ pipeline {
                     script {
                             echo 'Building Dockerfile'
                             withCredentials([usernamePassword(credentialsId: 'Docker_hub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                                sh 'docker login ${USERNAME} -p ${PASSWORD}'
+                                sh 'docker login ${dockeruser} -p ${dockerpass}'
                                 sh './push_docker_image.sh ${BUILD_NUMBER} ${REGISTRY}'
                             }
                     }
