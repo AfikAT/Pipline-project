@@ -4,8 +4,8 @@ pipeline {
         REGISTRY = "afik/argocd-project"
         REGESTRY_CRED = 'Docker_hub'
         BUILD_NUMBER = "${env.BUILD_ID}"
-        dockeruser = "${USERNAME}
-        dockerpass = "${PASSWORD}
+        dockeruser = "${USERNAME}"
+        dockerpass = "${PASSWORD}"
     }
     agent any
     stages {
