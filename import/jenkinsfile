@@ -3,6 +3,7 @@ pipeline {
     environment {
         registry = "afik/argocd-project"
         registryCredential = 'Docker_hub'
+        BUILD_NUMBER = "${env.BUILD_ID}"
     }
     agent any
     stages {
