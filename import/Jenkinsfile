@@ -20,9 +20,11 @@ pipeline {
                    script {
                             echo 'Installing Helm chart'
                                 sh 'helm install spring-petclinic-k8S ./springchart'
-                            }
-                                }
-                            }
-   }
+                   }
+                }
+          }      }
+         }
+    }           
 }
+   
               
