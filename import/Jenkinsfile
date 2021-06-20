@@ -8,12 +8,12 @@ pipeline {
     agent any
     stages {
          stage('pushing_image') {
-              steps {
+             dir('import') {
                   script {
                            echo 'Building Dockerfile'
                           sh './push_docker_image.sh ${BUILD_NUMBER} ${REGISTRY}'
                   }
-              }
+             }
          }
     }
 }
