@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.mysqlname }}
+  labels:
+    app: {{ .Values.mysqlabel }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.mysqlabel }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.mysqlabel }}
+    spec:
+      containers:
+      - name: {{ .Values.mysqlname }}
+        image: {{ .Values.imagemysql }}
+        env:
+        - name: MYSQL_ROOT_PASSWORD=
+          value: {{ .Values.env1 }}
+        - name: MYSQL_ALLOW_EMPTY_PASSWORD=
+          value: {{ .Values.env2 }}
+        - name: MYSQL_USER=
+          value: {{ .Values.env3 }}
+        - name: MYSQL_DATABASE=
+          value: {{ .Values.env3 }}
+        ports:
+        - containerPort: 80

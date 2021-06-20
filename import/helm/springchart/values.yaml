@@ -1,0 +1,21 @@
+###values File for deployment###
+image: afik/argocd-project:latest
+label: spring-petclinic-deployment
+labelselector: spring-petclinic-deployment
+name: spring-petclinic-deployment
+###values File for service###
+servicename: spring-petclinic-service
+servicetype: clusterIP
+portmapping: 80
+servicelabel: spring-petclinic-service
+type: clusterIP
+targetportmapping: 8080
+###values File for deployment##
+imagemysql: mysql:5.7
+mysqlabel: spring-petclinic-mysqldb-deployment
+mysqlname: spring-petclinic-mysqldb-deployment
+mysqlselector: spring-petclinic-mysqldb-deployment
+env1:
+env2: true
+env3: petclinic
+env4: petclinic
