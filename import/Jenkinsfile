@@ -12,14 +12,17 @@ pipeline {
                  dir('import') {
                     script {
                             echo 'Building Dockerfile'
-                            //withCredentials([usernamePassword(credentialsId: 'Docker_hub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                               docker.withRegistry( '', registryCredential ) {
                                 sh './push_docker_image.sh ${BUILD_NUMBER} ${REGISTRY}'
                               }
-                    }
-                 }
-             }
-         }
-    }
+          stage('helm install') {              
+                dir('helm') {
+                   script {
+                            echo 'Installing Helm chart'
+                                sh 'helm install spring-petclinic-k8S ./springchart'
+                            }
+                                }
+                            }
+   }
 }
-                    
+              
