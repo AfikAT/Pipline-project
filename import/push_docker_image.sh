@@ -2,7 +2,8 @@
 
 build=${1}
 registry_path=${2}
-echo ${build) echo ${registry_path}
+echo ${build) 
+echo ${registry_path}
 ls -l
 ##Building the image using latest tag & push to dockerhub
 
