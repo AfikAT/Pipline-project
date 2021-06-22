@@ -5,7 +5,7 @@ metadata:
   labels:
     app: {{ .Values.servicelabel }}
 spec:
-  type: {{ .Values.type }}
+  type: {{ .Values.clustertype }}
   selector:
     app: {{ .Values.labelselector }}
   ports:

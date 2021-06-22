@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.mysqlname }}
+  name: {{ .Values.mysqlabel }}
   labels:
     app: {{ .Values.mysqlabel }}
 spec:
@@ -15,16 +15,12 @@ spec:
         app: {{ .Values.mysqlabel }}
     spec:
       containers:
-      - name: {{ .Values.mysqlname }}
+      - name: {{ .Values.mysqlimagename }}
         image: {{ .Values.imagemysql }}
         env:
-        - name: MYSQL_ROOT_PASSWORD=
-          value: {{ .Values.env1 }}
-        - name: MYSQL_ALLOW_EMPTY_PASSWORD=
-          value: {{ .Values.env2 }}
-        - name: MYSQL_USER=
-          value: {{ .Values.env3 }}
-        - name: MYSQL_DATABASE=
-          value: {{ .Values.env3 }}
+          {{- range .Values.sqlenv }}
+        - name: {{ .name }}
+          value: {{ .value | quote }}
+          {{- end }}
         ports:
         - containerPort: 80
