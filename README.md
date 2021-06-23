@@ -1,4 +1,6 @@
-<strong><h1>Devop Project - Spring PetClinic Sample Application</h1><strong>
+<strong>
+<h1>Devop Project - Spring PetClinic Sample Application</h1>
+<strong>
 
 How to run this project?
 1)  run jenkins conitaner locally
