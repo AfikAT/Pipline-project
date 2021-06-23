@@ -18,4 +18,4 @@ spec:
       - name: {{ .Values.imagename }}
         image: {{ .Values.image }}
         ports:
-        - containerPort: 80
+        - containerPort: 8080
