@@ -7,4 +7,4 @@ How to run this project?
 3)  Change REGISTRY value to your DockerHub repo.
 4) In jenkins job, under pipline definition, choose pipeline script from scm.
 5) Copy project path and put import/Jenkinsfile in script path.
-6)Build the job and 
+6) Build the job and 
