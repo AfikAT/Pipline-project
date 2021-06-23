@@ -23,4 +23,4 @@ spec:
           value: {{ .value | quote }}
           {{- end }}
         ports:
-        - containerPort: 80
+        - containerPort: 3306
