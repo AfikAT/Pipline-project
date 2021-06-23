@@ -1,5 +1,6 @@
+<p>
 <h1>Devop Project - Spring PetClinic Sample Application</h1>
-
+</p>
 How to run this project?
 1)  run jenkins conitaner locally
 2)  Configure your Dockerhub credentials in jenkins in order to push the image
