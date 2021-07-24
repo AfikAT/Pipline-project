@@ -14,15 +14,7 @@ pipeline {
                             echo 'Building Dockerfile'
                               docker.withRegistry( '', registryCredential ) {
                                 sh './push_docker_image.sh ${BUILD_NUMBER} ${REGISTRY}'
-                    }
-         stage('helm install') {              
-                dir('helm') {
-                    script {
-                            echo 'Installing Helm chart'
-                                //sh '/usr/local/bin/helm install spring-petclinic-k8S ./springchart'
-                    }             sh 'which helm'
-                }
-         }
+                              }
                     }
                  }
              }
@@ -30,5 +22,5 @@ pipeline {
     }
 }
 
-   
+
               
