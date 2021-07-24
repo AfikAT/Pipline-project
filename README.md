@@ -6,7 +6,8 @@
 * Push it to dockerhub.
 * Deliver the application using Helm.
 ## instruction - how to run this project
-1) Create a costume network for sonarqube
+
+1) Create a custom  network for sonarqube
  ```
  docker network create sonarnet
  ```
