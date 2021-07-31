@@ -1,5 +1,5 @@
 # Pipeline Project-Spring PetClinic Sample Application
-
+![PetClinic Sample Application](https://user-images.githubusercontent.com/52320907/127744248-4c42af1c-50a7-49f0-a24c-7b07d78e3e2a.png)
  ## About this proejct:
 * This project will build Spring PetClinic Sample Application using 3 phase docker build pipline.
 * Will scan the code before delivery.
