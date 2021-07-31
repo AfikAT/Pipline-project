@@ -27,7 +27,9 @@ docker run -d --rm --name sonarqube --network sonarnet -p 0.0.0.0:9000:9000 sona
 
 10) Once the Job configure make sure to clone the repo to your machine.
 
-11) Run build job and it will start building the application.
+11) Run build job and it will start building the docker application.
+
+12) Go to your machine and install helm <a href="https://helm.sh/docs/intro/install/">See instruction here</a>
 
 12) Once the Job is completed, in your machine run the following command to start up the application you build:
 
